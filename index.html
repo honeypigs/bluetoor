@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>bluetoor</title>
+
+    <link href="css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=2.2.0" rel="stylesheet">
+
+</head>
+
+<body class="top-navigation">
+
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom white-bg">
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <div class="navbar-header">
+                        <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                            <i class="fa fa-reorder"></i>
+                        </button>
+                        <a href="index.html#" class="navbar-brand">Bluetoor</a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbar">
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-sign-out"></i> 退出
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <span class="label label-success pull-right">周</span>
+                                    <h5>签到人数</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins">386,200</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <span class="label label-info pull-right">周</span>
+                                    <h5>未到人数</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins">80,800</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <span class="label label-primary pull-right">今天</span>
+                                    <h5>签到状况</h5>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">406,420</h1>
+                                            <div class="font-bold text-navy">78% <i class="fa fa-bolt"></i>  <small>签到人数</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h1 class="no-margins">206,120</h1>
+                                            <div class="font-bold text-navy">22% <i class="fa fa-bolt"></i>  <small>旷到人数</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>月签到状况</h5>
+                                    <div class="ibox-tools">
+                                        <span class="label label-primary">2017.02 更新</span>
+                                    </div>
+                                </div>
+                                <div class="ibox-content no-padding">
+                                    <div class="flot-chart m-t-lg" style="height: 55px;">
+                                        <div class="flot-chart-content" id="flot-chart1"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content">
+                                    <div>
+                                        <span class="pull-right text-right">
+                                        <small>在过去的一周月旷到率平均值：<strong>16%</strong></small>
+                                        </span>
+                                        <h3 class="font-bold no-margins">
+                                            一周旷到率
+                                        </h3>
+                                    </div>
+
+                                    <div class="m-t-sm">
+
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div>
+                                                    <div id="lineChart" style="height: 200px"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <ul class="stat-list m-t-lg">
+                                                    <li>
+                                                        <h2 class="no-margins">2,346</h2>
+                                                        <small>本周旷到人数</small>
+                                                        <div class="progress progress-mini">
+                                                            <div class="progress-bar" style="width: 48%;"></div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <h2 class="no-margins ">4,422</h2>
+                                                        <small>上周旷到人数</small>
+                                                        <div class="progress progress-mini">
+                                                            <div class="progress-bar" style="width: 60%;"></div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="m-t-md">
+                                        <small class="pull-right">
+                                        <i class="fa fa-clock-o"> </i>
+                                        2017.02.30更新
+                                    </small>
+                                        <small>
+                                        <strong>说明：</strong> 本周销人数比上周增长了23%。
+                                    </small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>全部学生行为统计</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">总签到人数</small>
+                                            <h4>236 321</h4>
+                                        </div>
+
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">总旷到人数</small>
+                                            <h4>117 878</h4>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">旷到率</small>
+                                            <h4>46.11%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">总签到人数</small>
+                                            <h4>643 321</h4>
+                                        </div>
+
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">请假人数</small>
+                                            <h4>234 342</h4>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">请假率</small>
+                                            <h4>56.67%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">总签到人数</small>
+                                            <h4>643 321</h4>
+                                        </div>
+
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">迟到人数</small>
+                                            <h4>414 552</h4>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <small class="stats-label">迟到率</small>
+                                            <h4>66.67%</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>旷到学生</h5>
+                                    <div class="ibox-tools">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">学院 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a>计算机</a>
+                                                </li>
+                                                <li><a>通信</a>
+                                                </li>
+                                                <li><a>软件</a>
+                                                </li>
+                                                <li><a>自动化</a>
+                                                </li>
+                                                <li><a>光电</a>
+                                                </li>
+                                                <li><a>经管</a>
+                                                </li>
+                                                <li><a>理学院</a>
+                                                </li>
+                                                <li><a>体学院</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">年级 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a>2014</a>
+                                                </li>
+                                                <li><a>2015</a>
+                                                </li>
+                                                <li><a>2016</a>
+                                                </li>
+                                                <li><a>2017</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">课程 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a>高数</a>
+                                                </li>
+                                                <li><a>大物</a>
+                                                </li>
+                                                <li><a>计算机组成原理</a>
+                                                </li>
+                                                <li><a>信息安全</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-sm-9 m-b-xs">
+                                            <div data-toggle="buttons" class="btn-group">
+                                                <label class="btn btn-sm btn-white">
+                                                    <input type="radio" id="option1" name="options">天</label>
+                                                <label class="btn btn-sm btn-white active">
+                                                    <input type="radio" id="option2" name="options">周</label>
+                                                <label class="btn btn-sm btn-white">
+                                                    <input type="radio" id="option3" name="options">月</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="搜索" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary">搜索</button> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>姓名</th>
+                                                    <th>班级</th>
+                                                    <th>学号</th>
+                                                    <th>日期</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>小明</td>
+                                                    <td><span class="pie">04041404</span>
+                                                    </td>
+                                                    <td>2014211222</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小红</td>
+                                                    <td><span class="pie">6,9</span>
+                                                    </td>
+                                                    <td>40%</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>天狼</td>
+                                                    <td><span class="pie">3,1</span>
+                                                    </td>
+                                                    <td>75%</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>织女</td>
+                                                    <td><span class="pie">4,9</span>
+                                                    </td>
+                                                    <td>18%</td>
+                                                    <td>2014.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小明</td>
+                                                    <td><span class="pie">04041404</span>
+                                                    </td>
+                                                    <td>2014211222</td>
+                                                    <td>2014.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小红</td>
+                                                    <td><span class="pie">6,9</span>
+                                                    </td>
+                                                    <td>40%</td>
+                                                    <td>2014.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>天狼</td>
+                                                    <td><span class="pie">3,1</span>
+                                                    </td>
+                                                    <td>75%</td>
+                                                    <td>2014.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>织女</td>
+                                                    <td><span class="pie">4,9</span>
+                                                    </td>
+                                                    <td>18%</td>
+                                                    <td>2014.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小明</td>
+                                                    <td><span class="pie">04041404</span>
+                                                    </td>
+                                                    <td>2014211222</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>小红</td>
+                                                    <td><span class="pie">6,9</span>
+                                                    </td>
+                                                    <td>40%</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>天狼</td>
+                                                    <td><span class="pie">3,1</span>
+                                                    </td>
+                                                    <td>75%</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>织女</td>
+                                                    <td><span class="pie">4,9</span>
+                                                    </td>
+                                                    <td>18%</td>
+                                                    <td>2016.11.11</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-xs">迟到</button>
+                                                        <button type="button" class="btn btn-primary btn-xs">请假</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/echarts/echarts.js"></script>
+
+    <script>
+        var myChart = echarts.init(document.getElementById('lineChart'));
+        var option = {
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['迟到人数','请假人数','旷到人数',],
+                itemWidth: 15,
+                itemHeight: 10,
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data : ['周一','周二','周三','周四','周五','周六','周日']
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'迟到人数',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data:[120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name:'请假人数',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data:[220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name:'旷到人数',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data:[150, 232, 201, 154, 190, 330, 410]
+                }
+            ]
+        };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
