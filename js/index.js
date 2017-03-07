@@ -212,10 +212,10 @@ window.onload = function () {
 		, function(result){
 		if (result.status == 200) {
 			for(var i = 0; i < result.data.length ;i++) {
-				course = course + "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
-				"</td><td><span class='pie'>" + result.data[0].class + 
-				"</span></td><td>" + result.data[0].stuNum + 
-				"</td><td>" + result.data[0].created_at + 
+				course = course + "<tr id = " + result.data[i].ccid + "><td>" + result.data[i].stuName + 
+				"</td><td><span class='pie'>" + result.data[i].class + 
+				"</span></td><td>" + result.data[i].stuNum + 
+				"</td><td>" + result.data[i].created_at + 
 				"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 			}
 			$(course).appendTo("tbody");
@@ -250,10 +250,10 @@ window.onload = function () {
 			if (result.status == 200) {
 				alert("没有了");
 				for(var i = 0; i < result.data.length ;i++) {
-					ccourse = course + "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
-					"</td><td><span class='pie'>" + result.data[0].class + 
-					"</span></td><td>" + result.data[0].stuNum + 
-					"</td><td>" + result.data[0].created_at + 
+					ccourse = course + "<tr id = " + result.data[i].ccid + "><td>" + result.data[i].stuName + 
+					"</td><td><span class='pie'>" + result.data[i].class + 
+					"</span></td><td>" + result.data[i].stuNum + 
+					"</td><td>" + result.data[i].created_at + 
 					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
 				$(course).appendTo("tbody");
@@ -277,10 +277,10 @@ window.onload = function () {
 					alert("没有了");
 				}
 				for(var i = 0; i < result.data.length ;i++) {
-					course = course + "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
-					"</td><td><span class='pie'>" + result.data[0].class + 
-					"</span></td><td>" + result.data[0].stuNum + 
-					"</td><td>" + result.data[0].created_at + 
+					course = course + "<tr id = " + result.data[i].ccid + "><td>" + result.data[i].stuName + 
+					"</td><td><span class='pie'>" + result.data[i].class + 
+					"</span></td><td>" + result.data[i].stuNum + 
+					"</td><td>" + result.data[i].created_at + 
 					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
 				$(course).appendTo("tbody");
