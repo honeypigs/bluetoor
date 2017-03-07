@@ -204,6 +204,7 @@ window.onload = function () {
 
 	function getStu() {
 		course = "";
+		search = "";
 		if ($("#searchBox")[0].value) {
 			if (isNaN($("#searchBox")[0].value) == true) {
 				search = "&stuName=" + $("#searchBox")[0].value;
