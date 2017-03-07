@@ -218,7 +218,7 @@ window.onload = function () {
 				"</td><td>" + result.data[0].created_at + 
 				"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 			}
-			$(course).add("tbody");
+			$(course).appendTo("tbody");
 		}
 		
 	});
@@ -256,7 +256,7 @@ window.onload = function () {
 					"</td><td>" + result.data[0].created_at + 
 					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
-				$(course).add("tbody");
+				$(course).appendTo("tbody");
 			}
 			
 		});
@@ -283,7 +283,7 @@ window.onload = function () {
 					"</td><td>" + result.data[0].created_at + 
 					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
-				$(course).add("tbody");
+				$(course).appendTo("tbody");
 			}
 		});
 	})
