@@ -250,7 +250,7 @@ window.onload = function () {
 			if (result.status == 200) {
 				alert("没有了");
 				for(var i = 0; i < result.data.length ;i++) {
-					course += "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
+					ccourse = course + "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
 					"</td><td><span class='pie'>" + result.data[0].class + 
 					"</span></td><td>" + result.data[0].stuNum + 
 					"</td><td>" + result.data[0].created_at + 
@@ -277,7 +277,7 @@ window.onload = function () {
 					alert("没有了");
 				}
 				for(var i = 0; i < result.data.length ;i++) {
-					course += "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
+					course = course + "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
 					"</td><td><span class='pie'>" + result.data[0].class + 
 					"</span></td><td>" + result.data[0].stuNum + 
 					"</td><td>" + result.data[0].created_at + 
