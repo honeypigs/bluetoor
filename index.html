@@ -13,7 +13,11 @@
     <link href="font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=2.2.0" rel="stylesheet">
-
+    <style>
+        .table .btn {
+            margin-left: 5px;
+        }
+    </style>
 </head>
 
 <body class="top-navigation">
@@ -206,7 +210,7 @@
                                     </div>
                                 </div>
                                 <div class="table-responsive">
-                                    <table id="stuList" class="table table-striped">
+                                    <table class="table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>姓名</th>
@@ -216,8 +220,7 @@
                                                 <th>操作</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                        </tbody>
+                                        <tbody id="stulist"></tbody>
                                     </table>
                                 </div>
                                 <button id="more" type="button" style="margin: 0 auto; display:block;" class="btn btn-primary btn-s">更多</button>

@@ -30,12 +30,12 @@ window.onload = function () {
 
 	$.get(URL + "/api/teacher/web/statistics?" + token, function(result){
 		if (result.status == 200) {
-			$("#w-mark").innerHTML = result.data.week_sign;
-			$("#w-no").innerHTML = result.data.week_absence;
-			$("#d-mark").innerHTML = result.data.day_sign;
-			$("#d-no").innerHTML = result.data.day_absence;
-			$("#d-mark-r").innerHTML = Number(100*result.data.day_sign/(result.data.day_sign+result.data.day_absence)).toFixed(3);
-			$("#d-no-r").innerHTML = Number(100*result.data.day_absence/(result.data.day_sign+result.data.day_absence)).toFixed(3);
+			$("#w-mark")[0].innerHTML = result.data.week_sign;
+			$("#w-no")[0].innerHTML = result.data.week_absence;
+			$("#d-mark")[0].innerHTML = result.data.day_sign;
+			$("#d-no")[0].innerHTML = result.data.day_absence;
+			$("#d-mark-r")[0].innerHTML = Number(100*result.data.day_sign/(result.data.day_sign+result.data.day_absence)).toFixed(3) + "%";
+			$("#d-no-r")[0].innerHTML = Number(100*result.data.day_absence/(result.data.day_sign+result.data.day_absence)).toFixed(3) + "%";
 		}
 		
 	});
@@ -199,7 +199,7 @@ window.onload = function () {
 	var page = 0;
 	day = false;
 	month = false;
-	var course;
+	var course = "";
 
 	$.get(URL + "/api/teacher/web/stulist?" + token 
 		+ "&page=" + page 
@@ -208,17 +208,15 @@ window.onload = function () {
 		+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 		+ "&today=" + day 
 		+ "&this_month=" + month 
-		+ "&status=" + 1 
-
-
+		+ "&status=" + 3 
 		, function(result){
 		if (result.status == 200) {
 			for(var i = 0; i < result.data.length ;i++) {
-				course += "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
+				course = course + "<tr id = " + result.data[0].ccid + "><td>" + result.data[0].stuName + 
 				"</td><td><span class='pie'>" + result.data[0].class + 
 				"</span></td><td>" + result.data[0].stuNum + 
 				"</td><td>" + result.data[0].created_at + 
-				"</td><td><button id='5' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='5' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
+				"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 			}
 			$("#stulist").add(course);
 		}
@@ -247,7 +245,7 @@ window.onload = function () {
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
 			+ "&this_month=" + month 
-			+ "&status=" + 1 
+			+ "&status=" + 3 
 			, function(result){
 			if (result.status == 200) {
 				alert("没有了");
@@ -256,7 +254,7 @@ window.onload = function () {
 					"</td><td><span class='pie'>" + result.data[0].class + 
 					"</span></td><td>" + result.data[0].stuNum + 
 					"</td><td>" + result.data[0].created_at + 
-					"</td><td><button id='5' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='5' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
+					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
 				$("#stulist").add(course);
 			}
@@ -272,7 +270,7 @@ window.onload = function () {
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
 			+ "&this_month=" + month 
-			+ "&status=" + 1 
+			+ "&status=" + 3 
 			, function(result){
 			if (result.status == 200) {
 				if(result.total == 0) {
@@ -283,7 +281,7 @@ window.onload = function () {
 					"</td><td><span class='pie'>" + result.data[0].class + 
 					"</span></td><td>" + result.data[0].stuNum + 
 					"</td><td>" + result.data[0].created_at + 
-					"</td><td><button id='5' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='5' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
+					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
 				$("#stulist").add(course);
 			}
