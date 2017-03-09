@@ -34,8 +34,6 @@ window.onload = function () {
 			$("#w-no")[0].innerHTML = result.data.week_absence;
 			$("#d-mark")[0].innerHTML = result.data.day_sign;
 			$("#d-no")[0].innerHTML = result.data.day_absence;
-			$("#d-mark-r")[0].innerHTML = Number(100*result.data.day_sign/(result.data.day_sign+result.data.day_absence)).toFixed(3) + "%";
-			$("#d-no-r")[0].innerHTML = Number(100*result.data.day_absence/(result.data.day_sign+result.data.day_absence)).toFixed(3) + "%";
 		}
 		
 	});
@@ -137,7 +135,7 @@ window.onload = function () {
 						trigger: 'axis'
 					},
 					legend: {
-						data:['早退人数','迟到人数','旷到人数',],
+						data:['迟到人数'],
 						itemWidth: 15,
 						itemHeight: 10,
 					},
@@ -167,25 +165,11 @@ window.onload = function () {
 					],
 					series : [
 					{
-						name:'早退人数',
-						type:'line',
-						stack: '总量',
-						areaStyle: {normal: {}},
-						data: myChartData.leave
-					},
-					{
 						name:'迟到人数',
 						type:'line',
 						stack: '总量',
 						areaStyle: {normal: {}},
 						data: myChartData.late
-					},
-					{
-						name:'旷到人数',
-						type:'line',
-						stack: '总量',
-						areaStyle: {normal: {}},
-						data: myChartData.absence
 					}
 					]
 				};
@@ -222,22 +206,20 @@ window.onload = function () {
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
 			+ "&this_month=" + month 
-			+ "&status=" + 3 
+			+ "&status=" + 2 
 			, function(result){
 			if (result.status == 200) {
 				if(result.data.data.length == 0) {
 					alert("没有了");
 				}
-				console.log(result.data.data);
 				for(var i = 0; i < result.data.data.length ;i++) {
 					course = course + "<tr id = " + result.data.data[i].ccid + "><td>" + result.data.data[i].stuName + 
 					"</td><td><span class='pie'>" + result.data.data[i].class + 
 					"</span></td><td>" + result.data.data[i].stuNum + 
 					"</td><td>" + result.data.data[i].created_at + 
-					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
+					"</td><td><button id='3' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
 				$("tbody")[0].innerHTML = course;
-				console.log(course);
 				$("tr").click(function(e) {
 					if (e.currentTarget.id && e.target.id) {
 						$.ajax({
@@ -283,23 +265,20 @@ window.onload = function () {
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
 			+ "&this_month=" + month 
-			+ "&status=" + 3 
+			+ "&status=" + 2 
 			, function(result){
 			if (result.status == 200) {
-				console.log(result);
 				if(result.data.data.length == 0) {
 					alert("没有了");
 					page --;
 				}
 				for(var i = 0; i < result.data.data.length ;i++) {
-					console.log(result.data.data[i]);
 					course = course + "<tr id = " + result.data.data[i].ccid + "><td>" + result.data.data[i].stuName + 
 					"</td><td><span class='pie'>" + result.data.data[i].class + 
 					"</span></td><td>" + result.data.data[i].stuNum + 
 					"</td><td>" + result.data.data[i].created_at + 
-					"</td><td><button id='4' type='button' class='btn btn-primary btn-xs'>迟到</button><button id='2' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
+					"</td><td><button id='3' type='button' class='btn btn-primary btn-xs'>请假</button></td></tr>"
 				}
-				console.log(course);
 				$(course).appendTo("tbody");
 				$("tr").click(function(e) {
 					if (e.currentTarget.id && e.target.id) {
@@ -324,12 +303,21 @@ window.onload = function () {
 	})
 
 	$("#ok-list").click(function (e) {
-		console.log(e);
 		getStu();
 	})
 
 	$("#out").click(function(e) {
-		$.get(URL + "/api/teacher/web/stulist/excel?" + token 
+		search = "";
+		if ($("#searchBox")[0].value) {
+			if (isNaN($("#searchBox")[0].value) == true) {
+				search = "&stuName=" + $("#searchBox")[0].value;
+			} else if (isNaN($("#searchBox")[0].value) == false) {
+				search = "&stuNum=" + $("#searchBox")[0].value;
+			} else {
+				search = "";
+			}
+		}
+		var url = URL + "/api/teacher/web/stulist/excel?" + token 
 			+ "&page=" + page 
 			+ "&per_page=" + 20 
 			+ search
@@ -337,12 +325,8 @@ window.onload = function () {
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
 			+ "&this_month=" + month 
-			+ "&status=" + 3 
-			, function(result){
-			if (result.status == 200) {
-				alert("开始下载");
-			}
-		});
+			+ "&status=" + 3 ;
+		window.location = url; 
 	})
 
 
