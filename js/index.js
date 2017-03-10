@@ -14,8 +14,8 @@ window.onload = function () {
 			courseList = result.data;
 			for (a in courseList) {
 				scNum.push(a);
-				scName.push(courseList[a]);
-				allData[a] = courseList[a];
+				scName.push(courseList[a].course);
+				allData[a] = courseList[a].course;
 			}
 			var course = "";
 			for(var i = 0; i < scNum.length ;i++) {
@@ -77,7 +77,7 @@ window.onload = function () {
 				{
 					name:'旷到人数',
 					type:'line',
-					stack: '总量',
+					stack: '总人数',
 					areaStyle: {normal: {}},
 					data: chartData.data
 				}
@@ -113,29 +113,33 @@ window.onload = function () {
 
 
 	var myChart = echarts.init(document.getElementById('lineChart'));
-	var myChartData = {
-		leave: [],
-		late: [],
-		absence: []
-	}
-
 
 	$("#ok-m").click(function () {
-		$.get(URL + "/api/teacher/web/weekstatistics?" + token 
+		$.get(URL + "/api/teacher/web/termstatistics?" + token 
 			+ "&grade=" + Number($("#grade-m")[0].textContent)
 			+ "&scNum=" + changeNum($("#scNum-m")[0].textContent)
 			, function(result){
 		if (result.status == 200) {
-				myChartData.leave = result.data.leave;
-				myChartData.late = result.data.late;
-				myChartData.absence = result.data.absence;
+				var seriesData= [];
+				var jxb = [];
+				for(key in result.data) {
+					var course = {
+						areaStyle: {normal: {}},
+					};
+					course.name = "教学班:" + key;
+					course.type = "line";
+					course.stack = "总人数";
+					course.data = result.data[key];
+					seriesData.push(course);
+					jxb.push("教学班:" + key);
+				}
 
 				var option = {
 					tooltip : {
 						trigger: 'axis'
 					},
 					legend: {
-						data:['迟到人数'],
+						data:jxb,
 						itemWidth: 15,
 						itemHeight: 10,
 					},
@@ -155,7 +159,7 @@ window.onload = function () {
 					{
 						type : 'category',
 						boundaryGap : false,
-						data : ['周一','周二','周三','周四','周五','周六','周日']
+						data : ['第1周','第2周','第3周','第4周','第5课','第6周','第7周','第8周','第9周','第10周','第11周','第12周','第13周','第14周','第15周','第16周','第17周','第18周','第19周']
 					}
 					],
 					yAxis : [
@@ -163,15 +167,7 @@ window.onload = function () {
 						type : 'value'
 					}
 					],
-					series : [
-					{
-						name:'迟到人数',
-						type:'line',
-						stack: '总量',
-						areaStyle: {normal: {}},
-						data: myChartData.late
-					}
-					]
+					series : seriesData
 				};
 
 				myChart.setOption(option);
@@ -237,7 +233,6 @@ window.onload = function () {
 		});
 	};
 
-	getStu();
 
 	$("#day").click(function () {	
 		day = true;
@@ -329,5 +324,11 @@ window.onload = function () {
 		window.location = url; 
 	})
 
-
+	function getTime() {
+		var time = new Date();
+		var now = time.toLocaleDateString().replace(/\//g,".");
+		return now; 
+	}
+	$("#time")[0].innerHTML= getTime();
+	$("#time2")[0].innerHTML= getTime();
 }
