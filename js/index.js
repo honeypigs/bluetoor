@@ -109,6 +109,7 @@ window.onload = function () {
 	changeTag("scNum-m","scNum-m-list");
 	changeTag("grade","grade-list");
 	changeTag("scNum","scNum-list");
+	changeTag("weekSearch","weekSearch-list");
 
 
 
@@ -126,12 +127,12 @@ window.onload = function () {
 					var course = {
 						areaStyle: {normal: {}},
 					};
-					course.name = "教学班:" + key;
+					course.name = "教学班" + key + "旷到人数";
 					course.type = "line";
 					course.stack = "总人数";
 					course.data = result.data[key];
 					seriesData.push(course);
-					jxb.push("教学班:" + key);
+					jxb.push("教学班" + key + "旷到人数");
 				}
 
 				var option = {
@@ -197,7 +198,8 @@ window.onload = function () {
 		$.get(URL + "/api/teacher/web/stulist?" + token 
 			+ "&page=" + page 
 			+ "&per_page=" + 20 
-			+ search
+			+ search 
+			+ "&week=" + (isNaN(Number($("#weekSearch")[0].textContent))?1:Number($("#weekSearch")[0].textContent))
 			+ "&grade=" + Number($("#grade")[0].textContent)
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
@@ -256,6 +258,7 @@ window.onload = function () {
 		$.get(URL + "/api/teacher/web/stulist?" + token 
 			+ "&page=" + page 
 			+ "&per_page=" + 20 
+			+ "&week=" + (isNaN(Number($("#weekSearch")[0].textContent))?1:Number($("#weekSearch")[0].textContent))
 			+ "&grade=" + Number($("#grade")[0].textContent)
 			+ "&scNum=" + changeNum($("#scNum")[0].textContent)
 			+ "&today=" + day 
