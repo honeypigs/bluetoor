@@ -122,6 +122,7 @@ window.onload = function () {
 	}
 
 
+
 	$("#ok-m").click(function () {
 		$.get(URL + "/api/teacher/web/termstatistics?" + token 
 			+ "&grade=" + Number($("#grade-m")[0].textContent)
